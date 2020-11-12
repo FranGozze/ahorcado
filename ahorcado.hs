@@ -110,7 +110,11 @@ adivinar_2 turno j1 j2=
                                 
                                 
                                 else    if (palabra_en_juego j2) ==0
-                                                then    do      putStrLn ("Jugador: " ++ (show (nombre j2)))
+                                                then    
+                                                        if (contador j2) == 0
+                                                        then    adivinar_2 turno j1 (Jugador (nombre j2) ((contador j2) -1) ((palabra_en_juego j2) +1) (palabra1 j2) (acierto1 j2) (palabra2 j2) (acierto2 j2) ((puntos j2) -3) )
+                                                        else
+                                                        do      putStrLn ("Jugador: " ++ (show (nombre j2)))
                                                                 putStrLn ("Intentos restantes: " ++ (show (contador j2)))
                                                                 putStrLn (acierto1 j2)
                                                                 putStr "> "
